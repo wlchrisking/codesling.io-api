@@ -8,6 +8,7 @@ import {
 
 export const addTestCaseController = async (req, res) => {
   try {
+    console.log('req.body:', req.body)
     const data = await addTestCaseQuery(req.body);
     success('addTestCaseController - successfully added test case ', data);
     return res.status(200).send(data);
