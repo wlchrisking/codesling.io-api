@@ -12,7 +12,7 @@ install:
  - npm install
  - yarn
  - yarn buildEnv
- - yarn setup:rest-server
+ - yarn cd setup:rest-server && yarn
  - yarn setup:socket-server
  - yarn setup:services/coderunner-service
  - yarn db:setup:rest-server
