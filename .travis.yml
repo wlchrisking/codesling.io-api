@@ -7,7 +7,7 @@ before_script:
 install:
  - yarn
  - yarn buildEnv
- - yarn cd setup:rest-server && yarn
+ - yarn setup:rest-server
  - yarn setup:socket-server
  - yarn setup:services/coderunner-service
  - yarn db:setup:rest-server
