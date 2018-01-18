@@ -14,6 +14,11 @@ const PORT = process.env.PORT || 4000;
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  console.log(req.method, req.path, res.statusCode);
+  next();
+});
+
 app.post('/submit-code', (req, res) => {
   tmp.file({ postfix: '.js' }, (errCreatingTmpFile, path) => {
     writeFile(path, req.body.code, (errWritingFile) => {
@@ -25,6 +30,7 @@ app.post('/submit-code', (req, res) => {
             let stderrFormatted = stderr.split('\n');
             stderrFormatted.shift();
             stderrFormatted = stderrFormatted.join('\n');
+            console.log('stderrformatted', stderrFormatted);
             res.send(stderrFormatted);
           } else {
 
@@ -32,6 +38,7 @@ app.post('/submit-code', (req, res) => {
             
             // need to test stdout vs the array of testCases
 
+            console.log('stdout', stdout);
             res.write(JSON.stringify(stdout));
             res.send();
           }
