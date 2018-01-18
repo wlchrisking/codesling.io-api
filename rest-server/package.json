@@ -33,7 +33,7 @@
     "express-validation": "^1.0.2",
     "helmet": "^3.9.0",
     "jest": "^22.0.4",
-    "joi": "^13.1.0",
+    "joi": "^8.9.0",
     "jsonwebtoken": "^8.1.0",
     "nodemon": "^1.13.3",
     "passport": "^0.4.0",
