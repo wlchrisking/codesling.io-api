@@ -3,13 +3,8 @@ node_js:
  - "stable"
 services: postgresql
 before_script:
- - brew services start postgresql
- - createuser root
- - createdb codesling
- - psql -c 'create database travis_ci' -U root
+ - psql -c 'create database travis_ci;' -U postgres
 install:
- - brew install postgresql
- 
  - yarn
  - yarn buildEnv
  - yarn setup:rest-server
