@@ -2,17 +2,16 @@ language: node_js
 node_js:
  - "stable"
 services: psql
-cache:
-  directories:
-   - node_modules
+cache: yarn
 before_script:
  - psql -c 'create database travis_ci' -U root
 install:
+ - npm install
  - yarn
  - yarn buildEnv
- - yarn sudo setup:rest-server
- - yarn sudo setup:socket-server
- - yarn sudo setup:services/coderunner-service
- - yarn sudo db:setup:rest-server
+ - yarn setup:rest-server
+ - yarn setup:socket-server
+ - yarn setup:services/coderunner-service
+ - yarn db:setup:rest-server
 script:
  - yarn start
