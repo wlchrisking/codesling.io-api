@@ -66,6 +66,3 @@ const clientEmitters = {
 };
 
 export default clientEmitters;
-
-
-
