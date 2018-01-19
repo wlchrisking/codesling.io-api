@@ -1,12 +1,16 @@
 import express from 'express';
 
 import {
-  addTestCaseController
+  addTestCaseController,
+  fetchTestCaseController
 } from './testCasesControllers';
 
 const router = express.Router();
 
 router.route('/')
-  .post(addTestCaseController);
+  .post(addTestCaseController)
+
+router.route('/:challengeID')
+  .get(fetchTestCaseController)
 
 export default router;

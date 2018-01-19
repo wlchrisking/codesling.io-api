@@ -27,6 +27,11 @@ app.post('/submit-code', (req, res) => {
             stderrFormatted = stderrFormatted.join('\n');
             res.send(stderrFormatted);
           } else {
+
+            // req.body.testCases to access the array of test cases
+            
+            // need to test stdout vs the array of testCases
+
             res.write(JSON.stringify(stdout));
             res.send();
           }
