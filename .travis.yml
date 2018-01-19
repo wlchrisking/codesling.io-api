@@ -5,6 +5,7 @@ services: postgresql
 before_script:
  - createuser root
  - createdb codesling
+ - psql -c 'create database travis_ci' -U postgres
 install:
  - yarn
  - yarn buildEnv
