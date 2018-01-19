@@ -1,18 +1,30 @@
 language: node_js
 node_js:
  - "stable"
+<<<<<<< HEAD
 services: postgresql
 before_script:
  - createuser root
  - createdb codesling
  - psql -c 'create database travis_ci;' -U postgres
  - yarn db:setup:rest-server
+=======
+services: psql
+before_script:
+ - psql -c 'create database travis_ci' -U root
+>>>>>>> [add] sling.jsx has access to testcases specific to challenge
 install:
  - yarn
  - yarn buildEnv
  - yarn setup:rest-server
  - yarn setup:socket-server
  - yarn setup:services/coderunner-service
+<<<<<<< HEAD
 script:
  - yarn start &
  - sleep 10
+=======
+ - yarn db:setup:rest-server
+script:
+ - yarn start
+>>>>>>> [add] sling.jsx has access to testcases specific to challenge
