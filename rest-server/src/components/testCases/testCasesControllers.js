@@ -21,6 +21,11 @@ export const addTestCaseController = async (req, res) => {
 export const fetchTestCaseController = async (req, res) => {
   try {
     const data = await retrieveTestCaseQuery(req.params);
+
+    for (var i = 0; i < data.rows.length; i++) {
+      data.rows[i].content = JSON.parse(data.rows[i].content);
+    }
+
     success('fetchTestCaseController - successfully retrieved test cases', data);
     return res.status(200).send(data);
   } catch (err) {
