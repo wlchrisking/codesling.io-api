@@ -21,7 +21,11 @@ app.use((req, res, next) => {
 
 app.post('/submit-code', (req, res) => {
   //need name, pass tests in from client.
+<<<<<<< HEAD
   //then add test results to response
+=======
+  
+>>>>>>> [add] - add part of implementation for user code testing
   // req.body.testCases.
 
   // would run tests here on user's code of req.body.code
