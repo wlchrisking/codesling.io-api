@@ -1,4 +1,4 @@
-import { writeFile } from 'fs';
+import { writeFile, readFile } from 'fs';
 import { execFile } from 'child_process';
 import express from 'express';
 import bodyParser from 'body-parser';
@@ -20,6 +20,34 @@ app.use((req, res, next) => {
 });
 
 app.post('/submit-code', (req, res) => {
+  //need name, pass tests in from client.
+  
+  // req.body.testCases.
+
+  // would run tests here on user's code of req.body.code
+  // following the below method
+  // var funcAsGiven = 'function square(num) {return num * num; }';
+
+  // //test info:
+  // var testName = 'should return the square of an integer'
+  // var funcName = 'square'
+  // var testInput = 7
+  // var testOutput = 49
+  
+  // //adding test to user's func:
+  // var funcWithTest = funcAsGiven + ` ${funcName}(${testInput})`;
+  
+  // //running tests
+  // var evaluateFunc = function(){
+  //   if (eval(funcWithTest) === testOutput){
+  //     console.log(eval(funcWithTest));
+  //     console.log(`test ${testName} passed`);
+  //   } else {
+  //     console.log(`test ${testName} failed`);
+  //   }
+  // };
+  // evaluateFunc();
+
   tmp.file({ postfix: '.js' }, (errCreatingTmpFile, path) => {
     writeFile(path, req.body.code, (errWritingFile) => {
       if (errWritingFile) {
