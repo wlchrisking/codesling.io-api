@@ -10,7 +10,8 @@ import {
 
 export const addTestCaseQuery = async (body) => {
   try {
-    let data
+    
+    let data;
     for (let i = 0; i < body.content.length; i++) {
       const queryString = addTestCaseHelper({content: JSON.stringify(body.content[i]), challenge_id: body.challenge_id});
       data = await db.queryAsync(queryString);
